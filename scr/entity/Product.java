@@ -1,3 +1,5 @@
+package entity;
+
 public class Product {
     String name;
     int weight;
