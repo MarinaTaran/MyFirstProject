@@ -1,5 +1,7 @@
 package entity;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -8,15 +10,22 @@ public abstract class User {
     String password;
     String email;
     String telephon;
-private Set<User> listUsers=new TreeSet<>();
+    int ID;
+   // DaoUser daoUser=new DaoClient();
+private static List<User> listUsers=new ArrayList<>();
+
     public User(String name, String password, String email, String telephon) {
+
         this.name = name;
         this.password = password;
         this.email = email;
         this.telephon = telephon;
+        listUsers.add(this);
     }
 
-    public User() {
+
+    public static List<User> getListUsers() {
+        return listUsers;
     }
 
     @Override
@@ -29,5 +38,23 @@ private Set<User> listUsers=new TreeSet<>();
                 '}';
     }
 
-    abstract boolean enterLogin(String email,String password);
+    public  boolean isThereUser(String name,String email){
+        boolean user = false;
+        for (User temp:listUsers){
+            if (temp.name.equals(name)){
+               user=false;
+            }
+        }return user;
+
+    }
+    public static User login(String email, String password) {
+        User result = null;
+        for (User temp : User.getListUsers()) {
+            if (temp.email.equals(email) && temp.password.equals(password)) {
+                result = temp;
+            }
+        }
+        return result;
+    }
+
 }
