@@ -7,8 +7,5 @@ public class Client extends User{
         super(name, password, email, telephon);
     }
 
-    @Override
-    boolean enterLogin(String email, String password) {
-        return false;
-    }
+
 }
