@@ -1,6 +1,6 @@
 package form;
 
-import entity.ClientExceptin;
+import entity.ClientException;
 import entity.DaoClient;
 import entity.User;
 import javafx.fxml.FXML;
@@ -29,7 +29,7 @@ public class RegistrationControler {
         String repeatPassword = repeat_password.getText();
         try {
             User us=dao.createUser(password,email,name,repeatPassword);
-        } catch (ClientExceptin e) {
+        } catch (ClientException e) {
             System.out.println(e.myMessage);
             e.printStackTrace();
         }
