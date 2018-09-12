@@ -61,7 +61,7 @@ public class OrderController {
         fManufac.setCellValueFactory(new PropertyValueFactory<>("manufact"));
         product_view.getColumns().addAll(fNameCol,fManufac,fPrice,fWeight);
         product_view.setItems(model);
-        ololo.setItems(model);
+        product_view.setItems(model);
 
     }
 
@@ -76,7 +76,7 @@ public class OrderController {
                     filtered((w)->{return w.getName().startsWith(temp);});
         System.out.println(filtr);
 //            model.clear();
-           ololo.setItems(filtr);
+           product_view.setItems(filtr);
 
         }
        // System.out.println("key pressed " + search_product.getText());
