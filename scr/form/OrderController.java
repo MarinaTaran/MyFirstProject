@@ -9,13 +9,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Vector;
@@ -46,9 +43,7 @@ public class OrderController {
     @FXML
     TextField n_order;
     @FXML
-    TableColumn product_list;
-    @FXML
-    TableColumn quantity;
+    TableView product_view;
     @FXML
     TextField search_product;
     @FXML
@@ -56,6 +51,16 @@ public class OrderController {
     ObservableList<Product>  model=FXCollections.observableArrayList(stock.getProducts());
 
     public  void  initialize() {
+        TableColumn<Product, String> fNameCol = new TableColumn<>("Name of product");
+        fNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        TableColumn<Product, Integer> fPrice = new TableColumn<>("Price");
+        fPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        TableColumn<Product, Integer> fWeight = new TableColumn<>("Quantity");
+        fWeight.setCellValueFactory(new PropertyValueFactory<>("weight"));
+        TableColumn<Product, String> fManufac= new TableColumn<>("Manufacture");
+        fManufac.setCellValueFactory(new PropertyValueFactory<>("manufact"));
+        product_view.getColumns().addAll(fNameCol,fManufac,fPrice,fWeight);
+        product_view.setItems(model);
         ololo.setItems(model);
 
     }
@@ -67,10 +72,11 @@ public class OrderController {
 //            if (temp1.getName().toLowerCase().startsWith(temp)) {
 //                basket.add(temp1);
 //            }
-            List<Product> filtr=model.filtered((w)->{return true;});
+        ObservableList<Product> filtr=model.
+                    filtered((w)->{return w.getName().startsWith(temp);});
         System.out.println(filtr);
-            model.clear();
-           model.addAll(filtr);
+//            model.clear();
+           ololo.setItems(filtr);
 
         }
        // System.out.println("key pressed " + search_product.getText());
