@@ -9,7 +9,7 @@ public class Order {
     Client owner;
     LocalDate  dateOrder;
     OrderState state;
-    Vector<Product>  korzina=new Vector<>();
+    Vector<Product> basket =new Vector<>();
 
     public Order(String number, Client owner, LocalDate dateOrder, OrderState state) {
         this.number = number;
