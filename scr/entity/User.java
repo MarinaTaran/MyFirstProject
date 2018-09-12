@@ -8,11 +8,15 @@ import java.util.TreeSet;
 public abstract class User {
     String name;
     String password;
-    String email;
+   private String email;
     String telephon;
     int ID;
    // DaoUser daoUser=new DaoClient();
 private static List<User> listUsers=new ArrayList<>();
+
+    public User() {
+
+    }
 
     public User(String name, String password, String email, String telephon) {
 
@@ -47,6 +51,11 @@ private static List<User> listUsers=new ArrayList<>();
         }return user;
 
     }
+
+    public String getEmail() {
+        return email;
+    }
+
     public static User login(String email, String password) {
         User result = null;
         for (User temp : User.getListUsers()) {
