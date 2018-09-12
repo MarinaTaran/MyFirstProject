@@ -32,7 +32,7 @@ public class DaoClient implements DaoUser {
        User resulrt=null;
         User oldUser=findUserforEmeil(emeil);
         if(oldUser==null){
-            System.out.println("net takogo usere");
+            System.out.println("no such user");
         }else{
             oldUser.password=temp.password;
             oldUser.name=temp.name;
