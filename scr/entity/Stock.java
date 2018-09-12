@@ -9,8 +9,8 @@ import java.util.*;
 
 public class Stock {
 
-    Vector<Product> products = new Vector<Product>();
-    Scanner scanner = new Scanner(System.in);
+    private Vector<Product> products = new Vector<Product>();
+   // Scanner scanner = new Scanner(System.in);
 
 //    do
 //
@@ -55,12 +55,16 @@ public class Stock {
 //    }
 
 
+    public Vector<Product> getProducts() {
+        return products;
+    }
+
     public void addProduct(Product product) {
         boolean isFound = false;
         for (Product temp : products) {
-            if (product.name.equals(temp.name) && product.manufact.equals(temp.manufact) && product.price == temp.price) {
+            if (product.getName().equals(temp.getName()) && product.getManufact().equals(temp.getManufact()) && product.getPrice()== temp.getPrice()) {
                 isFound = true;
-                temp.weight += product.weight;
+                temp.setWeight(temp.getWeight()+ product.getWeight());
                 break;
             }
         }
@@ -73,7 +77,7 @@ public class Stock {
     public Vector<Product> searchProductName(String name) {
         Vector<Product> basketByName = new Vector<>();
         for (Product temp : products) {
-            if (temp.name.equals(name)) {
+            if (temp.getName().equals(name)) {
                 basketByName.add(temp);
 
             }
@@ -85,7 +89,7 @@ public class Stock {
     public Vector<Product> searchProductPrice(int price) {
         Vector<Product> basketByPrice = new Vector<>();
         for (Product temp : products)
-            if (temp.price == price) {
+            if (temp.getPrice() == price) {
                 basketByPrice.add(temp);
             }
         return basketByPrice;
@@ -94,7 +98,7 @@ public class Stock {
     public Vector<Product> searchProductManufact(String manufactor) {
         Vector<Product> basketByManufact=new Vector<>();
         for (Product temp:products){
-            if (temp.manufact.equals(manufactor)) {
+            if (temp.getManufact().equals(manufactor)) {
                 basketByManufact.add(temp);
             }
         }
@@ -105,14 +109,14 @@ public class Stock {
     public boolean saleProduct(String name,int quntaty) {
         boolean result=false;
         for (Product temp:products){
-            if (temp.name.equals(name)&&temp.weight>quntaty){
-              temp.weight -=quntaty;
+            if (temp.getName().equals(name)&&temp.getWeight()>quntaty){
+              temp.setWeight(temp.getWeight()-quntaty);
               result=true;
               break;
             }else{
-                if(temp.name.equals(name)){
+                if(temp.getName().equals(name)){
                     result=true;
-                    temp.weight=0;
+                    temp.setWeight(0);
                 }
             }
         }
@@ -133,7 +137,7 @@ public class Stock {
     public Vector<Product> createOrderForSend(String name,int weight) {
         Vector<Product> orderForSend = new Vector<>();
         for (Product temp : products) {
-            if (temp.name.contains(name) && temp.weight > weight) {
+            if (temp.getName().contains(name) && temp.getWeight()> weight) {
                 // orderForSend.add();
             }
         }
