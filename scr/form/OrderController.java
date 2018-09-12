@@ -26,10 +26,10 @@ public class OrderController {
         new Client("mari1", "123", "mari1@gmail.com", "222333");
         new Client("mari2", "123", "mari2@gmail.com", "222333");
         stock = new Stock();
-        stock.addProduct(new Product("smetana", 20, 20, "teva"));
-        stock.addProduct(new Product("doktorskaya", 30, 50, "zaporozhskaya"));
-        stock.addProduct(new Product("kivi", 50, 30, "africa"));
-        stock.addProduct(new Product("kivi", 20, 30, "africa"));
+        stock.addProduct(new Product("sour cream", 20, 20, "teva"));
+        stock.addProduct(new Product("hummus", 30, 50, "cabar"));
+        stock.addProduct(new Product("eegs", 50, 30, "leser"));
+        stock.addProduct(new Product("hummus", 20, 30, "cabar"));
         System.out.println(stock.toString());
 
     }
