@@ -1,4 +1,6 @@
 import entity.Client;
+import entity.Product;
+import entity.Stock;
 import entity.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,17 +11,12 @@ import javafx.stage.Stage;
 public class Start1 extends Application
 
 {
-    static{
-        new Client("mari","123","mari@gmail.com","222333");
-        new Client("mari1","123","mari1@gmail.com","222333");
-        new Client("mari2","123","mari2@gmail.com","222333");
 
-    }
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("form/proba.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("form/orderForUser.fxml"));
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 600, 500));
+        primaryStage.setScene(new Scene(root, 800,500 ));
         primaryStage.show();
     }
 
