@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,13 +10,13 @@
    <children>
       <Button fx:id="add_basket" layoutX="85.0" layoutY="340.0" mnemonicParsing="false" text="Add to basket" />
       <Label fx:id="namerOrder" layoutX="448.0" layoutY="25.0" text="N of order" />
-      <Label layoutX="513.0" layoutY="65.0" text="Basket" />
+      <Label layoutX="609.0" layoutY="65.0" text="Basket" />
       <Button fx:id="order_product" layoutX="368.0" layoutY="340.0" mnemonicParsing="false" onDragDetected="#qwe1" onDragDone="#qwe_done" text="Order" />
-      <ListView fx:id="basket_view" layoutX="455.0" layoutY="100.0" prefHeight="200.0" prefWidth="131.0" AnchorPane.bottomAnchor="200.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0" />
       <TextField fx:id="n_order" layoutX="534.0" layoutY="20.0" prefHeight="31.0" prefWidth="43.0" />
       <TableView fx:id="product_view" layoutX="12.0" layoutY="121.0" onDragDetected="#qwerty" prefHeight="200.0" prefWidth="350.0" AnchorPane.bottomAnchor="200.0" AnchorPane.topAnchor="100.0" />
       <TextField fx:id="search_product" layoutX="148.0" layoutY="60.0" onKeyPressed="#qwerty" onKeyReleased="#qwerty" />
       <Label layoutX="40.0" layoutY="65.0" text="enter product" />
-      <ListView fx:id="ololo" layoutX="310.0" layoutY="109.0" prefHeight="200.0" prefWidth="141.0" AnchorPane.bottomAnchor="200.0" AnchorPane.rightAnchor="250.0" />
+      <TableView fx:id="busket_view" layoutX="534.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button layoutX="400.0" layoutY="159.0" mnemonicParsing="false" onMouseClicked="#mclic" text="Button" />
    </children>
 </AnchorPane>
