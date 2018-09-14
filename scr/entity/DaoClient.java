@@ -37,6 +37,7 @@ public class DaoClient implements DaoUser {
             oldUser.password=temp.password;
             oldUser.name=temp.name;
             oldUser.telephon=temp.telephon;
+            resulrt=temp;
         }
         return resulrt;
     }
