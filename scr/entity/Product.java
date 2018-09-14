@@ -61,7 +61,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product " + getName() + "manufactura" + getManufact() + "weight" + getWeight() + "price" + getPrice();
+        return "Product " + getName() + " manufactura " + getManufact() + "weight" + getWeight() + "price " + getPrice();
     }
 
 //}
