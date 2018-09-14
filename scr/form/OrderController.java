@@ -39,18 +39,25 @@ public class OrderController {
     @FXML
     Button order_product;
     @FXML
-    ListView busket_view;
-    @FXML
     TextField n_order;
     @FXML
     TableView product_view;
     @FXML
     TextField search_product;
     @FXML
-    ListView ololo;
-    ObservableList<Product>  model=FXCollections.observableArrayList(stock.getProducts());
+    TableView busket_view;
 
+    ObservableList<Product>  model=FXCollections.observableArrayList(stock.getProducts());
+    ObservableList<Product>  model3=FXCollections.observableArrayList();
     public  void  initialize() {
+        initTableView1();
+        TableColumn<Product, String> addNameToBusket = new TableColumn<>("Name of product");
+        addNameToBusket.setCellValueFactory(new PropertyValueFactory<>("name"));
+       busket_view.getColumns().addAll(addNameToBusket);
+        busket_view.setItems(model3);
+    }
+
+    private void initTableView1() {
         TableColumn<Product, String> fNameCol = new TableColumn<>("Name of product");
         fNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         TableColumn<Product, Integer> fPrice = new TableColumn<>("Price");
@@ -61,9 +68,8 @@ public class OrderController {
         fManufac.setCellValueFactory(new PropertyValueFactory<>("manufact"));
         product_view.getColumns().addAll(fNameCol,fManufac,fPrice,fWeight);
         product_view.setItems(model);
-        product_view.setItems(model);
-
     }
+
 
     public void qwerty() {  //obrabotka nazhatiy na klavishu
 //        Vector<Product> basket = new Vector<>();
@@ -82,7 +88,14 @@ public class OrderController {
        // System.out.println("key pressed " + search_product.getText());
 
 //        System.out.println(basket);
+        public  void mclic(){
+            System.out.println("method klick");
+            System.out.println(product_view.getSelectionModel().getSelectedItem());
+            model3.add((Product)product_view.getSelectionModel().getSelectedItem());
+            busket_view.setItems(model3);
 
+
+        }
 
     public void listOfProduct() {
         // product_list.;
