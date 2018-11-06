@@ -1,5 +1,5 @@
 package entity;
 
 public enum OrderState {
-    created,payed,resived
+    created, payed, resived
 }

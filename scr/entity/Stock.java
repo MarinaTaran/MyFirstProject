@@ -10,11 +10,10 @@ import java.util.*;
 public class Stock {
 
     private Vector<Product> products = new Vector<Product>();
-   // Scanner scanner = new Scanner(System.in);
-
-//    do
+    // Scanner scanner = new Scanner(System.in);
+//   do
 //
-//    {
+//   {
 //        System.out.println("Which operation do you choose: 1 - add product, 2 - search product by name, 3 - " +
 //                "search product by price, 4 - search product by manufacture, 5 - sale product, 6 - create order for " +
 //                "send, 7 - to string balance, 8 - to string products, 0 - exit ");
@@ -62,15 +61,14 @@ public class Stock {
     public void addProduct(Product product) {
         boolean isFound = false;
         for (Product temp : products) {
-            if (product.getName().equals(temp.getName()) && product.getManufact().equals(temp.getManufact()) && product.getPrice()== temp.getPrice()) {
+            if (product.getName().equals(temp.getName()) && product.getManufact().equals(temp.getManufact()) && product.getPrice() == temp.getPrice()) {
                 isFound = true;
-                temp.setWeight(temp.getWeight()+ product.getWeight());
+                temp.setWeight(temp.getWeight() + product.getWeight());
                 break;
             }
         }
         if (!isFound) {
             products.add(product);
-
         }
     }
 
@@ -79,13 +77,11 @@ public class Stock {
         for (Product temp : products) {
             if (temp.getName().equals(name)) {
                 basketByName.add(temp);
-
             }
         }
         return basketByName;
     }
 
-    //
     public Vector<Product> searchProductPrice(int price) {
         Vector<Product> basketByPrice = new Vector<>();
         for (Product temp : products)
@@ -96,52 +92,49 @@ public class Stock {
     }
 
     public Vector<Product> searchProductManufact(String manufactor) {
-        Vector<Product> basketByManufact=new Vector<>();
-        for (Product temp:products){
+        Vector<Product> basketByManufact = new Vector<>();
+        for (Product temp : products) {
             if (temp.getManufact().equals(manufactor)) {
                 basketByManufact.add(temp);
             }
         }
         return basketByManufact;
+    }
 
-        }
-
-    public boolean saleProduct(String name,int quntaty) {
-        boolean result=false;
-        for (Product temp:products){
-            if (temp.getName().equals(name)&&temp.getWeight()>quntaty){
-              temp.setWeight(temp.getWeight()-quntaty);
-              result=true;
-              break;
-            }else{
-                if(temp.getName().equals(name)){
-                    result=true;
+    public boolean saleProduct(String name, int quntaty) {
+        boolean result = false;
+        for (Product temp : products) {
+            if (temp.getName().equals(name) && temp.getWeight() > quntaty) {
+                temp.setWeight(temp.getWeight() - quntaty);
+                result = true;
+                break;
+            } else {
+                if (temp.getName().equals(name)) {
+                    result = true;
                     temp.setWeight(0);
                 }
             }
         }
-
-        return result ;
+        return result;
     }
 
     public void toStringBalance() {
-       // Vector<Product> balance=new Vector<>();
+        // Vector<Product> balance=new Vector<>();
         //Set<String> setPointer=new Set<String>();
-        for (Product temp:products){
+        for (Product temp : products) {
             System.out.println(temp);
         }
-
-       // return Collections.unmodifiableCollection(products);
+        // return Collections.unmodifiableCollection(products);
     }
 
-    public Vector<Product> createOrderForSend(String name,int weight) {
+    public Vector<Product> createOrderForSend(String name, int weight) {
         Vector<Product> orderForSend = new Vector<>();
         for (Product temp : products) {
-            if (temp.getName().contains(name) && temp.getWeight()> weight) {
+            if (temp.getName().contains(name) && temp.getWeight() > weight) {
                 // orderForSend.add();
             }
         }
-    return  null;
+        return null;
     }
 
     public String toString() {

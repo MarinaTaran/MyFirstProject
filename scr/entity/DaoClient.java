@@ -29,47 +29,47 @@ public class DaoClient implements DaoUser {
 
     @Override
     public User update(String emeil, User temp) {
-       User resulrt=null;
-        User oldUser=findUserforEmeil(emeil);
-        if(oldUser==null){
+        User resulrt = null;
+        User oldUser = findUserforEmeil(emeil);
+        if (oldUser == null) {
             System.out.println("no such user");
-        }else{
-            oldUser.password=temp.password;
-            oldUser.name=temp.name;
-            oldUser.telephon=temp.telephon;
-            resulrt=temp;
+        } else {
+            oldUser.password = temp.password;
+            oldUser.name = temp.name;
+            oldUser.telephon = temp.telephon;
+            resulrt = oldUser;
         }
         return resulrt;
     }
 
 
     @Override
-        public User findUserByID ( int ID){
-            User result = null;
-            for (User temp : findeAllUser()) {
-                if (temp.ID == ID) {
-                    result = temp;
-                }
-
-            }
-            return result;
-        }
-
-        @Override
-        public List<User> findeAllUser () {
-
-            return User.getListUsers();
-        }
-
-        @Override
-        public User findUserforEmeil (String emeil){
-            User result = null;
-            for (User temp : findeAllUser()) {
-                if (temp.getEmail().equals(emeil)) {
-                    result = temp;
-                }
+    public User findUserByID(int ID) {
+        User result = null;
+        for (User temp : findeAllUser()) {
+            if (temp.ID == ID) {
+                result = temp;
             }
 
-            return result;
         }
+        return result;
     }
+
+    @Override
+    public List<User> findeAllUser() {
+
+        return User.getListUsers();
+    }
+
+    @Override
+    public User findUserforEmeil(String emeil) {
+        User result = null;
+        for (User temp : findeAllUser()) {
+            if (temp.getEmail().equals(emeil)) {
+                result = temp;
+            }
+        }
+
+        return result;
+    }
+}

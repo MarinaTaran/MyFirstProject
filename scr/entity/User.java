@@ -8,18 +8,16 @@ import java.util.TreeSet;
 public abstract class User {
     String name;
     String password;
-   private String email;
+    private String email;
     String telephon;
     int ID;
-   // DaoUser daoUser=new DaoClient();
-private static List<User> listUsers=new ArrayList<>();
+    // DaoUser daoUser=new DaoClient();
+    private static List<User> listUsers = new ArrayList<>();
 
     public User() {
-
     }
 
     public User(String name, String password, String email, String telephon) {
-
         this.name = name;
         this.password = password;
         this.email = email;
@@ -42,14 +40,14 @@ private static List<User> listUsers=new ArrayList<>();
                 '}';
     }
 
-    public  boolean isThereUser(String name,String email){
+    public boolean isThereUser(String name, String email) {
         boolean user = false;
-        for (User temp:listUsers){
-            if (temp.name.equals(name)){
-               user=false;
+        for (User temp : listUsers) {
+            if (temp.name.equals(name)) {
+                user = false;
             }
-        }return user;
-
+        }
+        return user;
     }
 
     public String getEmail() {
@@ -65,5 +63,4 @@ private static List<User> listUsers=new ArrayList<>();
         }
         return result;
     }
-
 }
