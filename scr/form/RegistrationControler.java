@@ -28,11 +28,10 @@ public class RegistrationControler {
         String name = enter_name.getText();
         String repeatPassword = repeat_password.getText();
         try {
-            User us=dao.createUser(password,email,name,repeatPassword);
+            User us = dao.createUser(password, email, name, repeatPassword);
         } catch (ClientException e) {
             System.out.println(e.myMessage);
             e.printStackTrace();
         }
     }
-
 }

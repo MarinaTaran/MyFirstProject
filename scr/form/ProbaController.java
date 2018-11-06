@@ -28,7 +28,6 @@ public class ProbaController {
 
 
     public void startReg() {
-
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("registration.fxml"));
         // System.out.println(getClass().getResource("two.fxml"));
         Parent root2 = null;
@@ -41,7 +40,6 @@ public class ProbaController {
         stage.initModality(Modality.WINDOW_MODAL);
         stage.setScene(new Scene(root2));
         stage.show();
-
     }
 
     public boolean login1() {
@@ -61,9 +59,7 @@ public class ProbaController {
     }
 
 
-
-    public  void goToOrder(){
-
+    public void goToOrder() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("orderForUser.fxml"));
         // System.out.println(getClass().getResource("two.fxml"));
         Parent root2 = null;

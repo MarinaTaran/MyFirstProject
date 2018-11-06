@@ -11,8 +11,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Vector;
@@ -47,13 +49,15 @@ public class OrderController {
     @FXML
     TableView busket_view;
 
-    ObservableList<Product>  model=FXCollections.observableArrayList(stock.getProducts());
-    ObservableList<Product>  model3=FXCollections.observableArrayList();
-    public  void  initialize() {
+    ObservableList<Product> model = FXCollections.observableArrayList(stock.getProducts());
+    ObservableList<Product> model3 = FXCollections.observableArrayList();
+
+    public void initialize() {
         initTableView1();
         TableColumn<Product, String> addNameToBusket = new TableColumn<>("Name of product");
         addNameToBusket.setCellValueFactory(new PropertyValueFactory<>("name"));
-       busket_view.getColumns().addAll(addNameToBusket);
+//        lNameCol.setCellFactory(TextFieldTableCell.<Person>forTableColumn());
+        busket_view.getColumns().addAll(addNameToBusket);
         busket_view.setItems(model3);
     }
 
@@ -64,38 +68,37 @@ public class OrderController {
         fPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         TableColumn<Product, Integer> fWeight = new TableColumn<>("Quantity");
         fWeight.setCellValueFactory(new PropertyValueFactory<>("weight"));
-        TableColumn<Product, String> fManufac= new TableColumn<>("Manufacture");
+        TableColumn<Product, String> fManufac = new TableColumn<>("Manufacture");
         fManufac.setCellValueFactory(new PropertyValueFactory<>("manufact"));
-        product_view.getColumns().addAll(fNameCol,fManufac,fPrice,fWeight);
+        product_view.getColumns().addAll(fNameCol, fManufac, fPrice, fWeight);
         product_view.setItems(model);
     }
 
 
     public void qwerty() {  //obrabotka nazhatiy na klavishu
 //        Vector<Product> basket = new Vector<>();
-       String temp = search_product.getText().toLowerCase();
+        String temp = search_product.getText().toLowerCase();
 //        for (Product temp1 : stock.getProducts()) {
 //            if (temp1.getName().toLowerCase().startsWith(temp)) {
 //                basket.add(temp1);
 //            }
-        ObservableList<Product> filtr=model.
-                    filtered((w)->{return w.getName().startsWith(temp);});
+        ObservableList<Product> filtr = model.
+                filtered((w) -> {
+                    return w.getName().startsWith(temp);
+                });
         System.out.println(filtr);
 //            model.clear();
-           product_view.setItems(filtr);
+        product_view.setItems(filtr);
+    }
+    // System.out.println("key pressed " + search_product.getText());
 
-        }
-       // System.out.println("key pressed " + search_product.getText());
-
-//        System.out.println(basket);
-        public  void mclic(){
-            System.out.println("method klick");
-            System.out.println(product_view.getSelectionModel().getSelectedItem());
-            model3.add((Product)product_view.getSelectionModel().getSelectedItem());
-            busket_view.setItems(model3);
-
-
-        }
+    //        System.out.println(basket);
+    public void mclic() {
+        System.out.println("method klick");
+        System.out.println(product_view.getSelectionModel().getSelectedItem());
+        model3.add((Product) product_view.getSelectionModel().getSelectedItem());
+        busket_view.setItems(model3);
+    }
 
     public void listOfProduct() {
         // product_list.;
